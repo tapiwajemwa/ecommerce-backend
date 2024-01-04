@@ -1,15 +1,17 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
-    
-    
 
+ 
 class Collection(models.Model):
     title = models.CharField(max_length=50)
-    featured_products = models.ForeignKey('Product', null = True, on_delete = models.SET_NULL,related_name='+')
+    featured_products = models.ForeignKey(
+        'Product', null=True, on_delete=models.SET_NULL, related_name='+')
 
 
 class Product(models.Model):
